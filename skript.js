@@ -1,18 +1,23 @@
 let startTime;
 let morseCode = '';
 const morseAlphabet = {
-    '.-': 'А', '-...': 'Б', '.--': 'В', '--.': 'Г', '.--.': 'Ґ', '-..': 'Д', '.': 'Е', 
+     '.-': 'А', '-...': 'Б', '.--': 'В', '--.': 'Г', '.--.': 'Ґ', '-..': 'Д', '.': 'Е', 
     '..-..': 'Є', '...-': 'Ж', '--..': 'З', '..': 'И', '..': 'І', '.-..-': 'Ї', '.---': 'Й', 
     '-.-': 'К', '.-..': 'Л', '--': 'М', '-.': 'Н', '---': 'О', '.--.': 'П', '.-.': 'Р', 
     '...': 'С', '-': 'Т', '..-': 'У', '..-.': 'Ф', '....': 'Х', '-.-.': 'Ц', '---.': 'Ч', 
     '----': 'Ш', '--.-': 'Щ', '-..-': 'Ь', '..--': 'Ю', '.--..': 'Я'
 };
 
+let isInputActive = false; // Track if input is active
+
 function startInput() {
     startTime = new Date().getTime();
+    isInputActive = true; // Mark input as active
 }
 
 function endInput() {
+    if (!isInputActive) return; // Prevent multiple triggers
+
     const endTime = new Date().getTime();
     const duration = endTime - startTime;
 
@@ -23,6 +28,13 @@ function endInput() {
     }
 
     document.getElementById('morseCodeInput').value = morseCode;
+    isInputActive = false; // Reset the input state
+}
+
+// Додаємо пробіл для розділення символів
+function addSpace() {
+    morseCode += ' '; // Додаємо пробіл
+    document.getElementById('morseCodeInput').value = morseCode;
 }
 
 // Додаємо тире
@@ -31,16 +43,8 @@ function addHyphen() {
     document.getElementById('morseCodeInput').value = morseCode;
 }
 
-
-// Додаємо пробіл для розділення символів
-function addSpace() {
-    morseCode += ' '; // Додаємо пробіл
-    document.getElementById('morseCodeInput').value = morseCode;
-}
-
 // Розшифровуємо код Морзе
 function decodeMorseCode() {
-    // Розділяємо на символи по пробілах
     const decodedText = morseCode.trim().split(' ').map(code => morseAlphabet[code] || '').join('');
     document.getElementById('decodedText').value = decodedText;
     morseCode = '';  // Очищаємо код після розшифровки
@@ -59,5 +63,3 @@ document.body.addEventListener('keydown', (event) => {
 const morseButton = document.getElementById('morseButton');
 morseButton.addEventListener('touchstart', startInput);
 morseButton.addEventListener('touchend', endInput);
-
-
