@@ -36,7 +36,10 @@ function addSpace() {
     morseCode += ' '; // Додаємо пробіл
     document.getElementById('morseCodeInput').value = morseCode;
 }
-
+function deleteLastChar() {
+    morseCode = morseCode.slice(0, -1); // Видаляємо останній символ
+    document.getElementById('morseCodeInput').value = morseCode; // Оновлюємо відображення
+}
 // Додаємо тире
 function addHyphen() {
     morseCode += '-'; // Додаємо тире
