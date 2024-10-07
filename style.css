@@ -4,13 +4,25 @@ body {
     padding: 20px;
 }
 
+h1 {
+    font-size: 1.8em;
+}
+
 .morse-input,
 .decoded-text {
     margin: 10px 0;
     padding: 10px;
     width: 100%;
     max-width: 400px;
-    font-size: 18px;
+    font-size: 1.2em;
+    /* Збільшено шрифт для зручності */
+}
+
+.decode-button {
+    padding: 10px 20px;
+    /* Збільшено відступи для зручності */
+    font-size: 1em;
+    /* Збільшено шрифт для зручності */
 }
 
 .morse-table {
@@ -26,4 +38,32 @@ body {
     padding: 5px;
     margin: 2px;
     text-align: center;
+    flex: 1 1 45%;
+    /* Додаємо гнучкість для таблиці */
+    min-width: 80px;
+    /* Встановлюємо мінімальну ширину для стовпців */
+}
+
+/* Стилі для мобільних пристроїв */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5em;
+        /* Менший заголовок на мобільних пристроях */
+    }
+
+    .morse-input,
+    .decoded-text {
+        font-size: 1em;
+        /* Менший шрифт для полів вводу */
+    }
+
+    .decode-button {
+        font-size: 0.9em;
+        /* Менший шрифт для кнопки */
+    }
+
+    .morse-table div {
+        flex: 1 1 30%;
+        /* Зменшити ширину стовпців на мобільних */
+    }
 }
