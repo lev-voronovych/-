@@ -12,15 +12,10 @@ function startInput() {
     startTime = new Date().getTime();
 }
 
-function addSpace() {
-    morseCode += ' '; // Додаємо пробіл
-    document.getElementById('morseCodeInput').value = morseCode;
-}
-
 function endInput() {
     const endTime = new Date().getTime();
     const duration = endTime - startTime;
-    
+
     if (duration < 200) {
         morseCode += '.'; // Коротке натискання - крапка
     } else {
@@ -52,3 +47,8 @@ document.body.addEventListener('keydown', (event) => {
         addSpace();
     }
 });
+
+// Додаємо підтримку для сенсорних екранів
+const morseButton = document.getElementById('morseButton');
+morseButton.addEventListener('touchstart', startInput);
+morseButton.addEventListener('touchend', endInput);
