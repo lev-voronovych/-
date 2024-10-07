@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+.morse-input,
+.decoded-text {
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    max-width: 400px;
+    font-size: 18px;
+}
+
+.morse-table {
+    margin: 20px auto;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.morse-table div {
+    border: 1px solid black;
+    padding: 5px;
+    margin: 2px;
+    text-align: center;
+}
