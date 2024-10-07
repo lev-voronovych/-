@@ -12,6 +12,11 @@ function startInput() {
     startTime = new Date().getTime();
 }
 
+function addSpace() {
+    morseCode += ' '; // Додаємо пробіл
+    document.getElementById('morseCodeInput').value = morseCode;
+}
+
 function endInput() {
     const endTime = new Date().getTime();
     const duration = endTime - startTime;
