@@ -25,6 +25,13 @@ function endInput() {
     document.getElementById('morseCodeInput').value = morseCode;
 }
 
+// Додаємо тире
+function addHyphen() {
+    morseCode += '-'; // Додаємо тире
+    document.getElementById('morseCodeInput').value = morseCode;
+}
+
+
 // Додаємо пробіл для розділення символів
 function addSpace() {
     morseCode += ' '; // Додаємо пробіл
@@ -52,3 +59,5 @@ document.body.addEventListener('keydown', (event) => {
 const morseButton = document.getElementById('morseButton');
 morseButton.addEventListener('touchstart', startInput);
 morseButton.addEventListener('touchend', endInput);
+
+
